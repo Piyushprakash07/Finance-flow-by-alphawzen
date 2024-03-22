@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goal Tracker</title>
+    <style>
+        /* CSS styles for the layout and styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a1d3b0, #f6f1d3);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .goal-section {
+            margin-bottom: 40px;
+        }
+
+        .goal-section h2 {
+            background: -webkit-linear-gradient(#a1d3b0, #f6f1d3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+
+    button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Financial Goal Tracker</h1>
+        
+        <!-- Goal Creation Section -->
+        <div class="goal-section">
+            <h2>Goal Creation</h2>
+            <div class="question">
+                <label for="income">Identification of Income:</label>
+                <input type="text" id="income" name="income" placeholder="Enter your income sources">
+            </div>
+
+            <div class="question">
+                <label for="expenses">List the Expenses:</label>
+                <input type="text" id="expenses" name="expenses" placeholder="List your expenses">
+            </div>
+
+            <div class="question">
+                <label for="goals">Set Financial Goals:</label>
+                <input type="text" id="goals" name="goals" placeholder="Describe your financial goals">
+            </div>
+
+            <div class="question">
+                <label for="allocation">Allocate Funds:</label>
+                <input type="text" id="allocation" name="allocation" placeholder="Allocate funds for each expense category">
+            </div>
+
+            <div class="question">
+                <label for="emergency">Emergency Funds:</label>
+                <input type="text" id="emergency" name="emergency" placeholder="Set aside funds for emergencies">
+            </div>
+            <button class="button" value="submit"><span></span>Submit</button>
+        </div>
+
+        <!-- Budget Tracking Section -->
+        <div class="goal-section">
+            <h2>Budget Tracking</h2>
+            <!-- Questions for budget tracking can be added here -->
+        </div>
+
+        
+    </div>
+</body>
+</html>

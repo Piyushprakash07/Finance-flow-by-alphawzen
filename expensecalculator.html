@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+             background: linear-gradient(to right, #a1d3b0,#f6f1d3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 400px;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        #total-expenses {
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Calculator</h1>
+
+        <label for="income">Income:</label>
+        <input type="text" id="income">
+        <button onclick="setIncome()">Set Income</button>
+
+        <br><br>
+
+        <label for="daily-expense">Daily Expense:</label>
+        <input type="text" id="daily-expense">
+        <button onclick="addDailyExpense()">Add Daily Expense</button>
+
+        <br><br>
+
+        <label for="monthly-expense">Monthly Expense:</label>
+        <input type="text" id="monthly-expense">
+        <button onclick="setMonthlyExpense()">Set Monthly Expense</button>
+
+        <br><br>
+
+        <label for="other-expense">Other Expense:</label>
+        <input type="text" id="other-expense">
+        <button onclick="setOtherExpense()">Set Other Expense</button>
+
+        <br><br>
+
+        <button onclick="calculateTotalExpenses()">Calculate Total Expenses</button>
+        <p>Total Expenses: <span id="total-expenses"></span></p>
+    </div>
+
+    <script>
+        
+        function setIncome() {
+            const income = document.getElementById('income').value;
+            fetch('/income', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ income })
+            })
+            .then(response => response.text())
+            .then(message => console.log(message))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function addDailyExpense() {
+            const amount = parseFloat(document.getElementById('daily-expense').value);
+            fetch('/daily-expenses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount })
+            })
+            .then(response => response.text())
+            .then(message => console.log(message))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function setMonthlyExpense() {
+            const amount = parseFloat(document.getElementById('monthly-expense').value);
+            fetch('/monthly-expenses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount })
+            })
+            .then(response => response.text())
+            .then(message => console.log(message))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function setOtherExpense() {
+            const amount = parseFloat(document.getElementById('other-expense').value);
+            fetch('/other-expenses', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ amount })
+            })
+            .then(response => response.text())
+            .then(message => console.log(message))
+            .catch(error => console.error('Error:', error));
+        }
+
+        function calculateTotalExpenses() {
+            fetch('/total-expenses')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('total-expenses').textContent = data.totalExpenses;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    
+        // JavaScript code remains the same
+    </script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Goals</title>
+    <style>
+        /* Updated CSS styles for a more attractive form */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a1d3b0, #f6f1d3);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question h2 {
+            margin-top: 0;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        input[type="text"],
+        input[type="radio"] {
+            width: calc(100% - 16px);
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin: 20px 10px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+span{
+    background: #009688;
+    height: 100%;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+button:hover{
+    border: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tell me about yourself...</h1>
+        <form action="#">
+            <div class="question">
+                <h2>Question 1: What is your financial goal?</h2>
+                <label>
+                    <input type="checkbox" name="financial_goal[]" value="Buying a house">
+                    Buying a house
+                </label>
+                <label>
+                    <input type="checkbox" name="financial_goal[]" value="Buying a new car">
+                    Buying a new car
+                </label>
+                <label>
+                    <input type="checkbox" name="financial_goal[]" value="Save for children's education">
+                    Save for children's education
+                </label>
+                <label>
+                    <input type="checkbox" name="financial_goal[]" value="Emergency fund">
+                    Emergency fund
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>Question 2: What is your monthly income?</h2>
+                <label>
+                    <input type="radio" name="income" value="0-30,000">
+                    0-30,000
+                </label>
+                <label>
+                    <input type="radio" name="income" value="30,000-50,000">
+                    30,000-50,000
+                </label>
+                <label>
+                    <input type="radio" name="income" value="50,000-100000">
+                    50,000-100000
+                </label>
+                <label>
+                    <input type="radio" name="income" value="100000-more">
+                    100000-more
+                </label>
+            </div>
+
+            <div class="question">
+                <h2>Question 3: How much do you spend in a month?</h2>
+                <label for="spending"></label>
+                <input type="text" id="spending" name="spending" placeholder="Enter your spending">
+            </div>
+
+            <button class="button" value="Submit"><span></span>Submit</button>
+        </form>
+    </div>
+</body>
+</html>
